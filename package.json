@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo1": "node mongoose-demo-1.js",
+    "demo2": "node mongoose-demo-2.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mongodb": "^3.6.6",
-    "mongoose": "^5.13.23"
+    "mongoose": "^8.4.1"
   }
 }

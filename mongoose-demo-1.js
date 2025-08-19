@@ -1,8 +1,17 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/m4w4d1');
+  const FruitSchema = new mongoose.Schema({ name: String });
+  const Fruit = mongoose.model('Fruit', FruitSchema);
+
+  const doc = await Fruit.create({ name: 'apple' });
+  console.log(doc.name);
+
+  await mongoose.connection.close();
+}
+
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
 });
